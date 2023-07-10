@@ -18,10 +18,13 @@ const FaceDetection = () => {
       if (response.ok) {
         const data = await response.json();
         const { imageUrl } = data;
+        console.log('Image received successfully:', imageUrl);
         setImageUrl(imageUrl);
         setIsImageReceived(true);
       } else {
-        console.log('Error uploading image');
+        console.log('Error uploading image. Status:', response.status);
+        const errorData = await response.json();
+        console.log('Error message:', errorData.message);
       }
     } catch (error) {
       console.log('Error uploading image:', error);
@@ -31,12 +34,14 @@ const FaceDetection = () => {
   return (
     <div>
       <h2>Face Detection</h2>
-      {imageUrl && (
+      {imageUrl ? (
         <img
           src={imageUrl}
           alt="User's image"
           style={{ maxWidth: '300px', marginBottom: '10px' }}
         />
+      ) : (
+        <p>No image available</p>
       )}
       {isImageReceived && <p>Image received from the server!</p>}
       <br />
