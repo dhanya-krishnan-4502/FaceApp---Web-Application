@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# FaceApp - Facial Recognition Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+FaceApp is a web-based facial recognition and expression detection application that leverages **face-api.js** and **Express.js** to detect, recognize, and analyze facial expressions. The project includes both a **React.js frontend** and an **Express.js backend** to process and display results.
 
-## Available Scripts
+## Features
+- **Face Detection**: Detects human faces in an uploaded image.
+- **Face Recognition**: Matches detected faces against a database of known faces.
+- **Facial Expression Analysis**: Identifies expressions like happiness, sadness, surprise, etc.
+- **Face Similarity**: Compares two uploaded images and calculates their similarity score.
 
-In the project directory, you can run:
+## Project Structure
+The project consists of both frontend and backend components.
 
-### `npm start`
+### 📂 Directory Structure
+```
+FaceApp
+│── client/           # React Frontend
+│   ├── src/          # React components and logic
+│   ├── public/       # Static files (index.html, favicon, etc.)
+│   ├── package.json  # Frontend dependencies
+│   ├── .gitignore    # Ignoring unnecessary files
+│   ├── README.md     # Documentation
+│── server/           # Express.js Backend
+│   ├── models/       # Pretrained FaceAPI models
+│   ├── uploads/      # Temporary uploaded images
+│   ├── known_faces/  # Stored known face images
+│   ├── faceRecognition.js # Face recognition logic
+│   ├── server.js     # Main backend server
+│   ├── package.json  # Backend dependencies
+│   ├── .gitignore    # Ignoring unnecessary files
+│── .gitattributes    # Git LFS tracking for large files
+│── .gitignore        # Files ignored in version control
+│── README.md         # Project documentation
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Setup Instructions
+To run the application locally, follow these steps:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/dhanya-krishnan-4502/FaceApp---Web-Application.git
+cd FaceApp
+```
 
-### `npm test`
+### 2️⃣ Install Dependencies
+#### Install Backend (Express.js)
+```sh
+cd server
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Install Frontend (React.js)
+```sh
+cd ../client
+npm install
+```
 
-### `npm run build`
+### 3️⃣ Set Up FaceAPI Models
+Ensure that the `models/` directory contains the required FaceAPI models. If not, download them from the FaceAPI repository and place them inside `server/models/`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4️⃣ Fix Node.js Version Compatibility Issues
+If you encounter an error related to `canvas` or module version mismatches, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Check Node.js Version
+```sh
+node -v
+```
+Compare it with the required **NODE_MODULE_VERSION** in the error message. If your version is mismatched, downgrade using `nvm`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Install an Older Node.js Version with `nvm`
+If `nvm` is not installed, install it first:
+```sh
+curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.bashrc   # or source ~/.zshrc if using zsh
+```
 
-### `npm run eject`
+Check available Node.js versions:
+```sh
+nvm ls
+```
+If the required version isn't installed, install it:
+```sh
+nvm install 16   # Example: install Node.js v16
+nvm use 16       # Switch to Node.js v16
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Rebuild Dependencies
+```sh
+npm rebuild
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Remove & Reinstall `canvas`
+If the issue persists, reinstall `canvas`:
+```sh
+npm uninstall canvas
+npm install canvas
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 5️⃣ Run the Server
+```sh
+cd server
+node server.js
+```
+The backend server should now be running on `http://localhost:8000/`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 6️⃣ Start the React Frontend
+```sh
+cd ../client
+npm start
+```
+The frontend should now be accessible at `http://localhost:3000/`.
 
-## Learn More
+## 🚀 How to Use
+1. Open the web application in a browser.
+2. Use the **Face Detection** feature to upload an image and detect faces.
+3. Use **Face Recognition** to match detected faces against stored known faces.
+4. Upload two images to **Face Similarity** to compare how similar the faces are.
+5. Analyze **Facial Expressions** from the uploaded image.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## ❌ Troubleshooting
+- If `node_modules` was accidentally added to Git, remove it using:
+  ```sh
+  git rm -r --cached node_modules/
+  echo 'node_modules/' >> .gitignore
+  git commit -m 'Removed node_modules'
+  git push origin main
+  ```
+- If Git LFS isn't installed, install it via:
+  ```sh
+  git lfs install
+  ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠 Technologies Used
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Face Detection & Recognition**: FaceAPI.js
+- **Database**: Local file-based image storage
+- **Version Control**: Git & GitHub
 
-### Code Splitting
+## 📌 Future Improvements
+- Deploying the project using **Docker**
+- Implementing a database (MongoDB/PostgreSQL) for user management
+- Adding **real-time** face recognition using a webcam
+- Improving UI/UX for a better user experience
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🤝 Contributing
+Feel free to fork this project and submit pull requests. Contributions are welcome!
 
-### Analyzing the Bundle Size
+## 📜 License
+This project is open-source and available under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📧 Contact
+For questions or suggestions, reach out to **dhanyakrishnan4502@gmail.com**.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
