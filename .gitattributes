@@ -1,0 +1,2 @@
+models/proto/*.pbtxt filter=lfs diff=lfs merge=lfs -text
+models/uncompressed/*.weights filter=lfs diff=lfs merge=lfs -text
