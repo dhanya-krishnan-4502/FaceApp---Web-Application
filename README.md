@@ -138,17 +138,11 @@ The frontend should now be accessible at `http://localhost:3000/`.
 - **Database**: Local file-based image storage
 - **Version Control**: Git & GitHub
 
-## 📌 Future Improvements
-- Deploying the project using **Docker**
-- Implementing a database (MongoDB/PostgreSQL) for user management
-- Adding **real-time** face recognition using a webcam
-- Improving UI/UX for a better user experience
-
 ## 🤝 Contributing
 Feel free to fork this project and submit pull requests. Contributions are welcome!
 
 ## 📜 License
-This project is open-source and available under the MIT License.
+This project is open-source.
 
 ## 📧 Contact
 For questions or suggestions, reach out to **dhanyakrishnan4502@gmail.com**.
