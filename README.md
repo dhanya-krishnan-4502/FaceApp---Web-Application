@@ -103,8 +103,30 @@ npm install
 ```
 
 ### 3️⃣ Set Up FaceAPI Models
-Ensure that the `models/` directory contains the required FaceAPI models. If not, download them from the FaceAPI repository and place them inside `server/models/`.
 
+Ensure that the models/ directory contains the required FaceAPI models. If not, download them from the official FaceAPI repository and place them inside server/models/.
+
+Required Models
+
+Download the following models from https://github.com/justadudewhohacks/face-api.js-models and place them in server/models/:
+
+ssd_mobilenetv1_model-weights_manifest.json
+
+ssd_mobilenetv1_model-shard1
+
+face_landmark_68_model-weights_manifest.json
+
+face_landmark_68_model-shard1
+
+face_recognition_model-weights_manifest.json
+
+face_recognition_model-shard1
+
+face_expression_model-weights_manifest.json
+
+face_expression_model-shard1
+
+Ensure that the models are correctly placed in server/models/ before running the application.
 ### 4️⃣ Fix Node.js Version Compatibility Issues
 If you encounter an error related to `canvas` or module version mismatches, follow these steps:
 
