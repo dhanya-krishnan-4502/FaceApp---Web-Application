@@ -1,12 +1,51 @@
 # FaceApp - Facial Recognition Web Application
 
-FaceApp is a web-based facial recognition and expression detection application that leverages **face-api.js** and **Express.js** to detect, recognize, and analyze facial expressions. The project includes both a **React.js frontend** and an **Express.js backend** to process and display results.
+FaceApp is a web-based application that enables face detection, facial recognition, facial expression analysis, and face similarity comparison using the face-api.js library and a Node.js + Express backend. It allows users to upload images, analyze faces, and get insights into recognized individuals and their expressionsfacial recognition and expression detection application that leverages face-api.js and Express.js to detect, recognize, and analyze facial expressions. The project includes both a React.js frontend and an Express.js backend to process and display results.
+
 
 ## Features
-- **Face Detection**: Detects human faces in an uploaded image.
-- **Face Recognition**: Matches detected faces against a database of known faces.
-- **Facial Expression Analysis**: Identifies expressions like happiness, sadness, surprise, etc.
-- **Face Similarity**: Compares two uploaded images and calculates their similarity score.
+- 1️⃣ Face Detection
+
+Detects faces in an uploaded image.
+
+Draws bounding boxes around detected faces.
+
+Returns the processed image with detected faces highlighted.
+
+2️⃣ Facial Recognition
+
+Compares an uploaded face with a set of known faces stored in the known_faces directory.
+
+Uses deep learning models (face-api.js) to compute facial embeddings and compare them.
+
+Identifies and returns the best match for the detected face.
+
+3️⃣ Facial Expression Analysis
+
+Detects common facial expressions like:
+
+Happy
+
+Sad
+
+Angry
+
+Surprised
+
+Disgusted
+
+Fearful
+
+Neutral
+
+Displays a labeled image with identified expressions.
+
+4️⃣ Face Similarity Comparison
+
+Accepts two images and calculates their similarity using Euclidean distance between their face embeddings.
+
+Returns a similarity score (lower distance indicates higher similarity).
+
 
 ## Project Structure
 The project consists of both frontend and backend components.
